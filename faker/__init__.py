@@ -91,3 +91,18 @@ class Faker(object):
             paragraph.append(w)
         return " ".join(paragraph)
 
+    def lorempixel(self, width=500, height=500, genre='people'):
+        template = rand(data.LOREMPIXEL)
+        number = random.randint(0, 10) + 1
+        return template.format(width=width, height=height, genre=genre, number=number)
+
+    def number(self, min_=0, max_=9999999999):
+        """a random number, min_ <= x < max_"""
+        return random.randint(min_, max_)
+
+    def float(self, min_=0, max_=9999999999, decimal=2):
+        return self.number(min_, max_ * pow(10, decimal)) / 1.0 / pow(10, decimal)
+
+    def one_of(self, a_list):
+        return random.choice(a_list)
+

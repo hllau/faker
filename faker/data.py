@@ -47,3 +47,7 @@ trix ly sy ton era jing la box ga za zing ster sense ify you go nico chi mix mee
 COMPANY_NAME_EXTRA = u"""
 media designs collective systems labs
 """
+
+LOREMPIXEL = u"""
+http://lorempixel.com/{width}/{height}/{genre}/{number}
+"""
