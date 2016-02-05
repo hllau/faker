@@ -10,6 +10,8 @@ import random
 
 import data
 import patterns
+import hashlib
+import os
 from utils import *
 
 
@@ -56,7 +58,7 @@ class Faker(object):
     @uses_names
     def email(self):
         first, last = self._names
-        return ("%s%s@%s" % (first[:1], last, domain())).lower().replace("'", "")
+        return ("%s%s-%s@%s" % (first[:1], last, hashlib.md5(os.urandom(5)).hexdigest()[:6], domain())).lower().replace("'", "")
 
     def full_address(self):
         return "%s\n%s, %s %s" % (self.street_address(), self.city(), self.state(), self.zip_code())
